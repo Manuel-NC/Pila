@@ -112,22 +112,22 @@ public class Pila<T> {
         for (int i = 0; i < vector.length; i++) {
             int numeroActual = vector[i];
 
-            // Desplazamos a la pila auxiliar los elementos mayores al numeroActual
+            // Desplazamos a la pila auxiliar los elementos menor o igual al numeroActual
             // Para consultar el tope sin desapilarlo, hacemos un pop() y luego lo devolvemos si es necesario
             while (!pilaPrincipal.vacia()) {
                 int tope = pilaPrincipal.pop();
 
-                if (tope > numeroActual) {
-                    // Si el tope es mayor, lo movemos a la auxiliar para hacer espacio
+                if (tope <= numeroActual) {
+                    // Si el tope es menor o igual, lo movemos a la auxiliar para hacer espacio
                     pilaAuxiliar.push(tope);
                 } else {
-                    // Si es menor o igual, lo regresamos a la principal y detenemos la búsqueda
+                    // Si es mayor, lo regresamos a la principal y detenemos la busqueda
                     pilaPrincipal.push(tope);
                     break;
                 }
             }
 
-            // Colocamos el número actual en su posición correcta
+            // Colocamos el numero actual en su posicion correcta
             pilaPrincipal.push(numeroActual);
 
             // Regresamos todos los elementos de la pila auxiliar a la principal
@@ -136,7 +136,7 @@ public class Pila<T> {
             }
         }
 
-        // Regresa la pila con el menor en el fondo y el mayor en el tope
+        // Regresa la pila con el mayor en el fondo y el menor en el tope para que se muestre de menor a mayor
         return pilaPrincipal;
     }
 }

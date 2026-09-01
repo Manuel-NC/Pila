@@ -24,15 +24,9 @@ void main() {
     Pila<Integer> resultado3 = pila.ordenarVector(numeros);
     Pila<Integer> paraImprimir = new Pila<>(numeros.length);
 
-// Al pasar de una pila a otra, los elementos invierten su orden
     while (!resultado3.vacia()) {
-        paraImprimir.push(resultado3.pop());
+        System.out.println(resultado3.pop());
     }
 
-// Ahora el tope tiene el número menor
-    System.out.println("Imprimiendo de menor a mayor:");
-    while (!paraImprimir.vacia()) {
-        System.out.println(paraImprimir.pop());
-    }
 
 }
